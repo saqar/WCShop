@@ -7,8 +7,8 @@ class Util extends Config
     public static function send_mail($to, $subject, $message)
     {
         $headers = "From: " . self::$config["email"] . "\r\n" .
-            "Reply-To: " . self::$config["email"] . "\r\n" .
-            "X-Mailer: PHP/" . phpversion();
+        "Reply-To: " . self::$config["email"] . "\r\n" .
+        "X-Mailer: PHP/" . phpversion();
         return @mail($to, $subject, $message, $headers);
     }
 
