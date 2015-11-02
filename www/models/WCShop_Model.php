@@ -4,19 +4,21 @@ Loader::load_library("Database");
 
 class WCShop_Model
 {
-    public static function get_example()
+    public static function is_login_valid($user, $sha_pass)
     {
-        $db = (new Database())->connect("wcshop");
-        $stmt = $db->prepare("sql");
+        $db = (new Database())->connect("auth");
+        $stmt = $db->prepare("SELECT * FROM account WHERE username = :user AND sha_pass_hash = :sha_pass");
+        $stmt->bindParam(":user", $user);
+        $stmt->bindParam(":sha_pass", $sha_pass);
         $stmt->execute();
 
         if($stmt->rowCount() > 0)
         {
-            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return true;
         }
         else
         {
-            return array();
+            return false;
         }
     }
 }

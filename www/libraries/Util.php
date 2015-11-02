@@ -22,14 +22,14 @@ class Util extends Config
             return false;
     }
 
-    public static function login($username, $password)
+    public static function login($username, $sha_pass)
     {
         session_start();
 
         if(!self::is_logged())
         {
             $_SESSION['username'] = $username;
-            $_SESSION['password'] = self::generate_hash($username, $password);
+            $_SESSION['password'] = $sha_pass;
         }
     }
 
@@ -55,8 +55,8 @@ class Util extends Config
 
     public static function generate_hash($username, $password)
     {
-        $password = strtoupper(sha1($username . $password));
-        return $password;
+        $password = sha1(strtoupper($username) . ":" . strtoupper($password));
+        return strtoupper($password);
     }
 
     public static function render_time($time)

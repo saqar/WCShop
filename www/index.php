@@ -36,12 +36,19 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/libraries/system/Loader.php";
     <script type="text/javascript" src="public/js/main.js"></script>
 </head>
 <body>
+    <header>
+        <section><p><a href="#">WCShop</a> - Online shop for World Of Warcraft private servers.</p></section>
+        <section><img src="">Logo Image</section>
+    </header>
     <div class="box">
         <main>
             <?php
                 Loader::load_view(isset($_GET["view"]) ? $_GET["view"] : null);
             ?>
         </main>
+        <footer>
+            <p>Designed by WoWCore.</p>
+        </footer>
     </div>
 </body>
 </html>

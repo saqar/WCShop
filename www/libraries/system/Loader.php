@@ -7,7 +7,7 @@ class Loader extends Config
     private function load($folder, $file)
     {
         $path_success = $_SERVER["DOCUMENT_ROOT"] . "/" . $folder . "/" . $file . ".php";
-        $path_failure = $_SERVER["DOCUMENT_ROOT"] . "/" . $folder . "/" . "home" . ".php";
+        $path_failure = $_SERVER["DOCUMENT_ROOT"] . "/" . $folder . "/" . "login" . ".php";
         $path = is_file($path_success) ? $path_success : $path_failure;
         include_once "" . $path . "";
     }
