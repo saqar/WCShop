@@ -1,25 +1,30 @@
 $(document).ready(function() {
-    $("#loginForm").submit(function(e) {
+    $("#loginForm").on("submit", function(e) {
         e.preventDefault();
-        $.ajax({
-            url: "/views/login_handler.php",
-            type: "post",
-            data: $(this).serialize(),
-            beforeSend: function() {
-                $("#loginForm").find("button").html("<i class='fa fa-spinner fa-spin'></i>");
-            }
-        }).success(function(response) {
-            if(response != 0) {
-                location.replace("/?view=panel");
-            }
-            else {
-                $("#loginForm").find("span").html("Usuário ou Senha inválidos.");
-                $("#loginForm").find("button").html("Login");
-            }
-        });
-    });
 
-    $("#loginForm").find("span").click(function() {
-        $(this).hide();
+        var username = $(this).find("input[name=username]").val();
+        var password = $(this).find("input[name=password]").val();
+
+        if(username && password) {
+            $.ajax({
+                url: "/views/login_handler.php",
+                type: "post",
+                data: $(this).serialize(),
+                beforeSend: function() {
+                    $("#loginForm").find("button").html("<i class='fa fa-spinner fa-spin'></i>");
+                }
+            }).success(function(response) {
+                if(response != 0) {
+                    location.replace("/?view=panel");
+                }
+                else {
+                    $("#loginForm").find("span").html("Username or Password are invalid.");
+                    $("#loginForm").find("button").html("Login");
+                }
+            });
+        }
+        else {
+            $(this).find("span").html("Username and Password are required.");
+        }
     });
 });
