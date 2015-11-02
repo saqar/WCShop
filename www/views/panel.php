@@ -1,7 +1,7 @@
 <section>
     <article>
         <span>Donate Points: 20</span>
-        <span>Logout</span>
+        <span><a href="/?view=logout">Logout</a></span>
     </article>
     <table>
         <tr>

@@ -2,7 +2,7 @@ $(document).ready(function() {
     $("#loginForm").submit(function(e) {
         e.preventDefault();
         $.ajax({
-            url: "/views/functions/login.php",
+            url: "/views/login_handler.php",
             type: "post",
             data: $(this).serialize(),
             beforeSend: function() {
@@ -21,5 +21,5 @@ $(document).ready(function() {
 
     $("#loginForm").find("span").click(function() {
         $(this).hide();
-    })
+    });
 });
