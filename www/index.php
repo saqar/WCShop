@@ -37,8 +37,9 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/libraries/system/Loader.php";
 </head>
 <body>
     <header>
-        <section><p><a href="#">WCShop</a> - Online shop for World Of Warcraft private servers.</p></section>
-        <section><img src="">Logo Image</section>
+        <section>
+            <img src="" alt="Logo">
+        </section>
     </header>
     <div class="box">
         <main>
@@ -48,6 +49,7 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/libraries/system/Loader.php";
         </main>
         <footer>
             <p>Designed by WoWCore.</p>
+            <p>WCShop - Online shop for World Of Warcraft private servers</p>
         </footer>
     </div>
 </body>

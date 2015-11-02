@@ -4,3 +4,48 @@ html, body {
     width: 100%;
     font-family: "Actor", sans-serif;
 }
+
+body > header {
+	width: 100%;
+}
+
+body > header > section {
+	width: 1024px;
+	margin: 50px auto 100px auto;
+	text-align: center;
+}
+
+.box {
+	width: 1024px;
+	margin: 0 auto;
+}
+
+main > section > #loginForm {
+	display: table;
+	margin: 0 auto;
+}
+
+main > section > article {
+	margin-bottom: 50px;
+}
+
+main > section > article > span {
+	display: table;
+	margin: 0 auto;
+}
+
+main > section > table {
+	margin: 0 auto;
+}
+
+footer {
+	margin-top: 75px;
+}
+
+footer > p:first-child {
+	float: right;
+}
+
+footer > p:last-child {
+	float: left;
+}
