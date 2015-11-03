@@ -14,7 +14,7 @@ if($user != null && $pass != null)
 
     if(WCShop_Model::is_login_valid($user, $sha_pass))
     {
-        Util::login($user, $sha_pass);
+        Util::login($user);
         echo 1;
     }
     else
@@ -24,5 +24,5 @@ if($user != null && $pass != null)
 }
 else
 {
-    Header("Location: /?view=login");
+    header("Location: /?view=login");
 }

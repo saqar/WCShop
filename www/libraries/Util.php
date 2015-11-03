@@ -12,30 +12,55 @@ class Util extends Config
         return @mail($to, $subject, $message, $headers);
     }
 
-    public static function is_logged()
+    public static function get_session_data($index)
     {
-        session_start();
+        if(!isset($_SESSION))
+        {
+            session_start();
+        }
 
-        if(isset($_SESSION['username']) && isset($SESSION['password']))
-            return true;
-        else
-            return false;
+        if(self::is_logged())
+        {
+            return $_SESSION[$index];
+        }
     }
 
-    public static function login($username, $sha_pass)
+    public static function is_logged()
     {
-        session_start();
+        if(!isset($_SESSION))
+        {
+            session_start();
+        }
+
+        if(isset($_SESSION["username"]))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public static function login($username)
+    {
+        if(!isset($_SESSION))
+        {
+            session_start();
+        }
 
         if(!self::is_logged())
         {
-            $_SESSION['username'] = $username;
-            $_SESSION['password'] = $sha_pass;
+            $_SESSION["username"] = $username;
         }
     }
 
     public static function logout()
     {
-        session_start();
+        if(!isset($_SESSION))
+        {
+            session_start();
+        }
         session_destroy();
     }
 
@@ -49,7 +74,6 @@ class Util extends Config
             $char = rand(0, strlen($characters) - 1);
             $pass .= $characters[$char];
         }
-
         return $pass;
     }
 
@@ -72,10 +96,10 @@ class Util extends Config
 
         $seconds = floor($time);
 
-        $days = ($days == 0) ? '' : $days . ' d : ';
-        $hours = ($hours == 0) ? '' : $hours . ' h : ';
-        $minutes = ($minutes == 0) ? '' : $minutes . ' m : ';
-        $seconds = ($seconds == 0) ? '' : $seconds . ' s';
+        $days = ($days == 0) ? "" : $days . " d : ";
+        $hours = ($hours == 0) ? "" : $hours . " h : ";
+        $minutes = ($minutes == 0) ? "" : $minutes . " m : ";
+        $seconds = ($seconds == 0) ? "" : $seconds . " s";
 
         return $days . $hours . $minutes . $seconds;
     }
@@ -83,26 +107,26 @@ class Util extends Config
     public static function get_client_ip()
     {
         $ip_address = NULL;
-        if (getenv('HTTP_CLIENT_IP'))
-            $ip_address = getenv('HTTP_CLIENT_IP');
+        if (getenv("HTTP_CLIENT_IP"))
+            $ip_address = getenv("HTTP_CLIENT_IP");
 
-        else if(getenv('HTTP_X_FORWARDED_FOR'))
-            $ip_address = getenv('HTTP_X_FORWARDED_FOR');
+        else if(getenv("HTTP_X_FORWARDED_FOR"))
+            $ip_address = getenv("HTTP_X_FORWARDED_FOR");
 
-        else if(getenv('HTTP_X_FORWARDED'))
-            $ip_address = getenv('HTTP_X_FORWARDED');
+        else if(getenv("HTTP_X_FORWARDED"))
+            $ip_address = getenv("HTTP_X_FORWARDED");
 
-        else if(getenv('HTTP_FORWARDED_FOR'))
-            $ip_address = getenv('HTTP_FORWARDED_FOR');
+        else if(getenv("HTTP_FORWARDED_FOR"))
+            $ip_address = getenv("HTTP_FORWARDED_FOR");
 
-        else if(getenv('HTTP_FORWARDED'))
-            $ip_address = getenv('HTTP_FORWARDED');
+        else if(getenv("HTTP_FORWARDED"))
+            $ip_address = getenv("HTTP_FORWARDED");
 
-        else if(getenv('REMOTE_ADDR'))
-            $ip_address = getenv('REMOTE_ADDR');
+        else if(getenv("REMOTE_ADDR"))
+            $ip_address = getenv("REMOTE_ADDR");
 
         else
-            $ip_address = '0.0.0.0';
+            $ip_address = "0.0.0.0";
 
         return $ip_address;
     }

@@ -1,6 +1,12 @@
+<?php
+
+require_once "panel_handler.php";
+
+?>
+
 <section>
     <article>
-        <span>Donate Points: 20</span>
+        <span>Donate Points: <?php echo $dp; ?></span>
         <span><a href="/?view=logout">Logout</a></span>
     </article>
     <table>
