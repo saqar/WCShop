@@ -12,13 +12,25 @@ require_once "handlers/panel.php";
     <table>
         <tr>
             <td>Item</td>
-            <td>Character</td>
+            <td>Price</td>
+            <td>Total</td>
             <td>Amount</td>
-            <td>Option</td>
+            <td>Character</td>
+            <td>Buy</td>
         </tr>
+        <?php foreach($items as $item) : ?>
         <tr>
             <td>
-                Wrathful Gladiator's Plate Helm
+                <?php echo $item['name']; ?>
+            </td>
+            <td id="price">
+                <?php echo $item['price']; ?>
+            </td>
+            <td id="total">
+                <?php echo $item['price']; ?>
+            </td>
+            <td>
+                <input type="number" min="1" max="100" value="1" id="amount"></input>
             </td>
             <td>
                 <select>
@@ -26,11 +38,9 @@ require_once "handlers/panel.php";
                 </select>
             </td>
             <td>
-                <input type="number" placeholder="Amount"></input>
-            </td>
-            <td>
                 <button>Buy</button>
             </td>
         </tr>
+        <?php endforeach; ?>
     </table>
 </section>

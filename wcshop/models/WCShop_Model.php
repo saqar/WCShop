@@ -68,4 +68,21 @@ class WCShop_Model
         }
         $db->disconnect();
     }
+
+    public static function get_items_store()
+    {
+        $db = (new Database())->connect("wcshop");
+        $stmt = $db->prepare("SELECT a1.item AS id, a2.name AS name, a1.price AS price FROM wcshop.item_store AS a1 LEFT JOIN world.item_template AS a2 ON a1.item = a2.entry");
+        $stmt->execute();
+
+        if($stmt->rowCount() > 0)
+        {
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
+        else
+        {
+            return array();
+        }
+        $db->disconnect();
+    }
 }

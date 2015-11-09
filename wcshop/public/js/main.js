@@ -46,4 +46,20 @@ $(document).ready(function() {
             location.replace("/?view=logout");
         });
     });
+
+    $("#amount").on("click keyup", function() {
+        if($(this).val() > 99)
+        {
+            $(this).val("99");
+        }
+        if($(this).val() < 1)
+        {
+            $(this).val("1");
+        }
+
+        var price = parseInt($("#price").text());
+        var amount = parseInt($(this).val());
+
+        $("#total").text(price * amount);
+    });
 });

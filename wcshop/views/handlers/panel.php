@@ -11,3 +11,4 @@ if(!Util::is_logged())
 }
 
 $dp = WCShop_Model::get_dp(Util::get_session_data("username"));
+$items = WCShop_Model::get_items_store();
