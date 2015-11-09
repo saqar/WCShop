@@ -22,6 +22,12 @@ class Config
         "db_host" => "localhost",
         "db_port" => "3306",
         "db_user" => "trinity",
-        "db_pass" => "trinity"
+        "db_pass" => "trinity",
+
+        // Soap Config - Set [SOAP.Enabled = 1] in the worldserver.conf file
+        "soap_host" => "127.0.0.1",
+        "soap_port" => "7878",
+        "soap_user" => "account",
+        "soap_pass" => "password",
     );
 }

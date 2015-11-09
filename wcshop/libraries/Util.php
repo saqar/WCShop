@@ -142,7 +142,7 @@ class Util extends Config
         try
         {
             $soap = new SoapClient(NULL, array(
-                    "location" => "http://" . self::$config["soap_ip"] . ":" . self::$config["soap_port"],
+                    "location" => "http://" . self::$config["soap_host"] . ":" . self::$config["soap_port"],
                     "uri"      => "urn:TC",
                     "style"    => SOAP_RPC,
                     "login"    => self::$config["soap_user"],
