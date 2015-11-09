@@ -1,3 +1,9 @@
+/*
+**
+** Developed by www.wowcore.com.br
+**
+*/
+
 $(document).ready(function() {
     $("#loginForm").on("submit", function(e) {
         e.preventDefault();

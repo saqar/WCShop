@@ -1,5 +1,11 @@
 <?php
 
+/*
+**
+** Developed by www.wowcore.com.br
+**
+*/
+
 class Config
 {
     public static $config = array(

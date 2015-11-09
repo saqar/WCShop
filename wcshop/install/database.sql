@@ -1,3 +1,9 @@
+/*
+**
+** Developed by www.wowcore.com.br
+**
+*/
+
 CREATE DATABASE `wcshop` DEFAULT CHARACTER SET utf8;
 USE `wcshop`;
 

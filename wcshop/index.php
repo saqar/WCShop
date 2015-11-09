@@ -1,5 +1,11 @@
 <?php
 
+/*
+**
+** Developed by www.wowcore.com.br
+**
+*/
+
 require_once $_SERVER["DOCUMENT_ROOT"] . "/libraries/Loader.php";
 
 ?>
