@@ -15,7 +15,7 @@ class WCShop_Model
     public static function is_login_valid($username, $sha_pass)
     {
         $db = (new Database())->connect("auth");
-        $stmt = $db->prepare("SELECT * FROM account WHERE username = :username AND sha_pass_hash = :sha_pass");
+        $stmt = $db->prepare("SELECT id FROM account WHERE username = :username AND sha_pass_hash = :sha_pass");
         $stmt->bindParam(":username", $username);
         $stmt->bindParam(":sha_pass", $sha_pass);
         $stmt->execute();
@@ -73,6 +73,24 @@ class WCShop_Model
     {
         $db = (new Database())->connect("wcshop");
         $stmt = $db->prepare("SELECT a1.item AS id, a2.name AS name, a1.price AS price FROM wcshop.item_store AS a1 LEFT JOIN world.item_template AS a2 ON a1.item = a2.entry");
+        $stmt->execute();
+
+        if($stmt->rowCount() > 0)
+        {
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
+        else
+        {
+            return array();
+        }
+        $db->disconnect();
+    }
+
+    public static function get_account_characters($account_id)
+    {
+        $db = (new Database())->connect("characters");
+        $stmt = $db->prepare("SELECT guid, account, name FROM characters WHERE account = :account_id");
+        $stmt->bindParam(":account_id", $account_id);
         $stmt->execute();
 
         if($stmt->rowCount() > 0)

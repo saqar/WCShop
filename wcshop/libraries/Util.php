@@ -136,4 +136,25 @@ class Util extends Config
 
         return $ip_address;
     }
+
+    public static function SoapConnect($command)
+    {
+        try
+        {
+            $soap = new SoapClient(NULL, array(
+                    "location" => "http://" . self::$config["soap_ip"] . ":" . self::$config["soap_port"],
+                    "uri"      => "urn:TC",
+                    "style"    => SOAP_RPC,
+                    "login"    => self::$config["soap_user"],
+                    "password" => self::$config["soap_pass"]
+                )
+            );
+            $soap->executeCommand(new SoapParam($command, "command"));
+            return true;
+        }
+        catch (Exception $e)
+        {
+            return false;
+        }
+    }
 }

@@ -10,5 +10,8 @@ if(!Util::is_logged())
 	header("Location: /?view=login");
 }
 
+$username = Util::get_session_data("username");
+$account_id = WCShop_Model::get_account_id($username);
 $dp = WCShop_Model::get_dp(Util::get_session_data("username"));
+$characters = WCShop_Model::get_account_characters($account_id);
 $items = WCShop_Model::get_items_store();
