@@ -39,6 +39,7 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/libraries/Loader.php";
     <link rel="icon" type="image/x-icon" href="public/img/favicon.png">
 
     <script type="text/javascript" src="public/js/jquery-2.1.4.js"></script>
+    <script type="text/javascript" src="http://cdn.openwow.com/api/tooltip.js"></script>
     <script type="text/javascript" src="public/js/main.js"></script>
 </head>
 <body>
