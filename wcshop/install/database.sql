@@ -3,9 +3,9 @@ USE `wcshop`;
 
 DROP TABLE IF EXISTS `account_data`;
 CREATE TABLE `account_data` (
-  `account` INT(10) UNSIGNED NOT NULL DEFAULT '0',
+  `account_id` INT(10) UNSIGNED NOT NULL DEFAULT '0',
   `dp` INT(10) UNSIGNED NOT NULL DEFAULT '0',
-  PRIMARY KEY (`account`)
+  PRIMARY KEY (`account_id`)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8;
 INSERT INTO `wcshop`.`account_data` SELECT id, '0' FROM `auth`.`account`;
 

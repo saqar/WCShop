@@ -18,7 +18,6 @@ class Database extends Config
         {
             echo "DB ERROR: " . $e->getMessage();
         }
-
         return $this->db_conn;
     }
 

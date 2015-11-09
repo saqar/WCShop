@@ -48,7 +48,7 @@ class WCShop_Model
         $account_id = self::get_account_id($username);
 
         $db = (new Database())->connect("wcshop");
-        $stmt = $db->prepare("SELECT dp FROM account_data WHERE account = :account_id");
+        $stmt = $db->prepare("SELECT dp FROM account_data WHERE account_id = :account_id");
         $stmt->bindParam(":account_id", $account_id);
         $stmt->execute();
 
