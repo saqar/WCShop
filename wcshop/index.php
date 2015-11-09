@@ -1,6 +1,6 @@
 <?php
 
-require_once $_SERVER["DOCUMENT_ROOT"] . "/libraries/system/Loader.php";
+require_once $_SERVER["DOCUMENT_ROOT"] . "/libraries/Loader.php";
 
 ?>
 

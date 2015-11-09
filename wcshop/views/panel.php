@@ -1,13 +1,13 @@
 <?php
 
-require_once "panel_handler.php";
+require_once "handlers/panel.php";
 
 ?>
 
 <section>
     <article>
         <span>Donate Points: <?php echo $dp; ?></span>
-        <span><a href="/?view=logout">Logout</a></span>
+        <span><button id="logout">Logout</button></span>
     </article>
     <table>
         <tr>

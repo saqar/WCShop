@@ -7,7 +7,7 @@ $(document).ready(function() {
 
         if(username && password) {
             $.ajax({
-                url: "/views/login_handler.php",
+                url: "/views/handlers/login.php",
                 type: "post",
                 data: $(this).serialize(),
                 beforeSend: function() {
@@ -26,5 +26,18 @@ $(document).ready(function() {
         else {
             $(this).find("span").html("Username and Password are required.");
         }
+    });
+
+    $("#logout").on("click", function(e) {
+        e.preventDefault();
+
+        $.ajax({
+            url: "views/handlers/logout.php",
+            beforeSend: function() {
+                $("#logout").html("<i class='fa fa-spinner fa-spin'></i>");
+            }
+        }).success(function() {
+            location.replace("/?view=logout");
+        });
     });
 });
