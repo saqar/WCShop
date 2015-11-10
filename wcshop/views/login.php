@@ -1,22 +1,22 @@
-<section>
-    <form id="loginForm">
+<section id="login-box">
+    <article>
         <span></span>
-        <table>
-            <tr>
-                <td>
-                    <input type="text" name="username" placeholder="Username"></input>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="password" name="password" placeholder="Password"></input>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <button type="submit">Login</button>
-                </td>
-            </tr>
-        </table>
-    </form>
+    </article>
+    <table>
+        <tr>
+            <td>
+                <input type="text" name="username" placeholder="Username">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="password" name="password" placeholder="Password">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button>Login</button>
+            </td>
+        </tr>
+    </table>
 </section>

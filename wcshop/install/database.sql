@@ -21,6 +21,7 @@ CREATE TABLE `item_category` (
   `name` VARCHAR(64) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8;
+INSERT INTO `item_category` (`id`, `name`) VALUES('1','Example');
 
 DROP TABLE IF EXISTS `item_store`;
 CREATE TABLE `item_store` (
@@ -32,6 +33,7 @@ CREATE TABLE `item_store` (
   KEY `category` (`category`),
   CONSTRAINT `category` FOREIGN KEY (`category`) REFERENCES `item_category` (`id`)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8;
+INSERT INTO `item_store` (`id`, `item`, `category`, `price`) VALUES('1','17','1','10');
 
 DROP TABLE IF EXISTS `purchase_log`;
 CREATE TABLE `purchase_log` (

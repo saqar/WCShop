@@ -137,7 +137,7 @@ class Util extends Config
         return $ip_address;
     }
 
-    public static function SoapConnect($command)
+    public static function soap_connect($command)
     {
         try
         {

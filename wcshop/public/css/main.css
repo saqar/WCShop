@@ -25,11 +25,6 @@ body > header > section {
 	margin: 0 auto;
 }
 
-main > section > #loginForm {
-	display: table;
-	margin: 0 auto;
-}
-
 main > section > article {
 	margin-bottom: 50px;
 }

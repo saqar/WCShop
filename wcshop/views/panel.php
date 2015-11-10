@@ -4,7 +4,7 @@ require_once "handlers/panel.php";
 
 ?>
 
-<section>
+<section id="panel-box">
     <article>
         <span>Hello <?php echo $username; ?>!</span>
         <span>You have <?php echo $dp; ?> donate points.</span>
@@ -31,7 +31,7 @@ require_once "handlers/panel.php";
                 <?php echo $item["price"]; ?>
             </td>
             <td>
-                <input type="number" min="1" max="100" value="1" id="amount"></input>
+                <input type="number" name="amount" min="1" max="100" value="1">
             </td>
             <td>
                 <select name="character">
