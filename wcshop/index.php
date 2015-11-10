@@ -56,7 +56,7 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/libraries/Loader.php";
         </main>
         <footer>
             <p>Designed by <a href="http://www.wowcore.com.br" target="_blank">WoWCore</a>.</p>
-            <p>WCShop - Online shop for World Of Warcraft private servers</p>
+            <p>WCShop - Online shop for World Of Warcraft private servers.</p>
         </footer>
     </div>
 </body>

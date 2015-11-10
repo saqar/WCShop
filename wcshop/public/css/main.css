@@ -15,27 +15,31 @@ body > header {
 }
 
 body > header > section {
-	width: 1024px;
+	width: 800px;
 	margin: 50px auto 100px auto;
 	text-align: center;
 }
 
 .box {
-	width: 1024px;
+	width: 800px;
 	margin: 0 auto;
 }
 
 main > section > article {
-	margin-bottom: 50px;
+	margin-bottom: 25px;
 }
 
 main > section > article > span {
 	display: table;
-	margin: 0 auto;
+	margin: 5px auto;
 }
 
 main > section > table {
 	margin: 0 auto;
+}
+
+main > section > table > tbody > tr > td {
+	padding: 5px;
 }
 
 footer {
