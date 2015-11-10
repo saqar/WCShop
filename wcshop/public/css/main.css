@@ -16,13 +16,14 @@ body > header {
 
 body > header > section {
 	width: 800px;
-	margin: 50px auto 100px auto;
+	margin: 50px auto;
 	text-align: center;
 }
 
 .box {
 	width: 800px;
 	margin: 0 auto;
+	overflow: hidden;
 }
 
 main > section > article {
@@ -43,7 +44,8 @@ main > section > table > tbody > tr > td {
 }
 
 footer {
-	margin-top: 75px;
+	margin-top: 100px;
+	border-top: 1px solid #ddd;
 }
 
 footer > p:first-child {

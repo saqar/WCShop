@@ -45,7 +45,7 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/libraries/Loader.php";
 <body>
     <header>
         <section>
-            <img src="public/img/logo.png" alt="Logo">
+            <img src="public/img/logo.jpg" alt="Logo">
         </section>
     </header>
     <div class="box">
