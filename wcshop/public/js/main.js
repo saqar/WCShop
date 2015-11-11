@@ -15,7 +15,7 @@ $(document).ready(function() {
                 type: "post",
                 data: {username: username, password: password},
                 beforeSend: function() {
-                    $("#login-box").find("table button").html("<i class='fa fa-spinner fa-spin'></i>");
+                    $("#login-box").find("table button").html("Loading...");
                 }
             }).success(function(response) {
                 if(response != 0) {
@@ -36,7 +36,7 @@ $(document).ready(function() {
         $.ajax({
             url: "views/handlers/logout.php",
             beforeSend: function() {
-                $("#logout").html("<i class='fa fa-spinner fa-spin'></i>");
+                $("#logout").html("Loading...");
             }
         }).success(function() {
             location.replace("/?view=logout");
