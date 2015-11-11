@@ -21,7 +21,6 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/libraries/Loader.php";
     <title><?php echo Loader::load_config("title"); ?></title>
 
     <link rel="stylesheet" type="text/css" href="public/css/normalize.css">
-    <link rel="stylesheet" type="text/css" href="public/fonts/font-awesome-4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="public/css/main.css">
 
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800">
@@ -38,7 +37,7 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/libraries/Loader.php";
 
     <link rel="icon" type="image/x-icon" href="public/img/favicon.png">
 
-    <script type="text/javascript" src="public/js/jquery-2.1.4.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="http://cdn.openwow.com/api/tooltip.js"></script>
     <script type="text/javascript" src="public/js/main.js"></script>
 </head>
