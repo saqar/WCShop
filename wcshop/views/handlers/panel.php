@@ -7,7 +7,7 @@ Loader::load_model("WCShop_Model");
 
 if(!Util::is_logged())
 {
-	header("Location: /?view=login");
+    header("Location: /?view=login");
 }
 
 $username = Util::get_session_data("username");

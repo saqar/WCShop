@@ -24,14 +24,14 @@ $cur_dp = WCShop_Model::get_dp($account_id);
 
 if($cur_dp < $total)
 {
-	die("2");
+    die("2");
 }
 
 $command = '.send items ' . $character . ' "|CFFFF0000Recompensa de Doação|r" "Agradecemos pela sua doação, divirta-se!" ' . $item . ':' . $amount;
 if(Util::soap_connect($command))
 {
-	$new_dp = $cur_dp - $total;
-	WCShop_Model::set_dp($account_id, $new_dp);
+    $new_dp = $cur_dp - $total;
+    WCShop_Model::set_dp($account_id, $new_dp);
     die("1");
 }
 
