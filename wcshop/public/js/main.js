@@ -22,13 +22,13 @@ $(document).ready(function() {
                     location.replace("/?view=panel");
                 }
                 else {
-                    $("#login-box").find("article span").html("Username or Password are invalid.");
+                    $("#login-box").find("#message").html("Username or Password are invalid.");
                     $("#login-box").find("table button").html("Login");
                 }
             });
         }
         else {
-            $("#login-box").find("article span").html("Username and Password are required.");
+            $("#login-box").find("#message").html("Username and Password are required.");
         }
     });
 

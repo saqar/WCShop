@@ -10,6 +10,9 @@ require_once "handlers/panel.php";
         <span>You have <?php echo $dp; ?> donate points.</span>
         <span><button id="logout">Logout</button></span>
     </article>
+    <article>
+        <span id="message"></span>
+    </article>
     <table>
         <tr>
             <td>Item</td>

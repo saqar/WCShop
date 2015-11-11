@@ -1,6 +1,6 @@
 <section id="login-box">
     <article>
-        <span></span>
+        <span id="message"></span>
     </article>
     <table>
         <tr>
