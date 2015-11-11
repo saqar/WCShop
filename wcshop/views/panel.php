@@ -44,7 +44,8 @@ require_once "handlers/panel.php";
                 </select>
             </td>
             <td>
-                <button>Buy</button>
+                <input type="hidden" name="item" value="<?php echo $item['id']; ?>">
+                <button id="buy">Buy</button>
             </td>
         </tr>
         <?php endforeach; ?>

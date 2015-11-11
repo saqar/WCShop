@@ -58,4 +58,27 @@ $(document).ready(function() {
 
         $("#panel-box").find("table #total").text(price * amount);
     });
+
+    $("#panel-box").find("#buy").on("click", function() {
+        var amount = $("#panel-box").find("table input[name=amount]").val();
+        var item = $("#panel-box").find("table input[name=item]").val();
+        var character = $("#panel-box").find("table select[name=character]").val();
+
+        $.ajax({
+            url: "views/handlers/purchase.php",
+            type: "post",
+            data: {amount: amount, item: item, character: character},
+            beforeSend: function() {
+                $("#panel-box").find("#buy").html("Loading...");
+            }
+        }).success(function(response) {
+            if(response != 0) {
+                $("#panel-box").find("#message").html("Purchase successfull, check your mail in game!");
+            }
+            else {
+                $("#panel-box").find("#message").html("Internal error, try again later.");
+            }
+            $("#panel-box").find("#buy").html("Buy");
+        });
+    })
 });
