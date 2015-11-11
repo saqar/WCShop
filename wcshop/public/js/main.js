@@ -18,12 +18,14 @@ $(document).ready(function() {
                     $("#login-box").find("table button").html("Loading...");
                 }
             }).success(function(response) {
-                if(response != 0) {
-                    location.replace("/?view=panel");
-                }
-                else {
-                    $("#login-box").find("#message").html("Username or Password are invalid.");
-                    $("#login-box").find("table button").html("Login");
+                switch(response) {
+                    case "1":
+                        location.replace("/?view=panel");
+                        break;
+                    case "0":
+                        $("#login-box").find("#message").html("Username or Password are invalid.");
+                        $("#login-box").find("table button").html("Login");
+                        break;
                 }
             });
         }
@@ -44,12 +46,10 @@ $(document).ready(function() {
     });
 
     $("#panel-box").find("table input[name=amount]").on("click keyup", function() {
-        if($(this).val() > 99)
-        {
+        if($(this).val() > 99) {
             $(this).val("99");
         }
-        if($(this).val() < 1)
-        {
+        if($(this).val() < 1) {
             $(this).val("1");
         }
 
@@ -61,24 +61,33 @@ $(document).ready(function() {
 
     $("#panel-box").find("#buy").on("click", function() {
         var amount = $("#panel-box").find("table input[name=amount]").val();
-        var item = $("#panel-box").find("table input[name=item]").val();
         var character = $("#panel-box").find("table select[name=character]").val();
+        var item = $("#panel-box").find("table input[name=item]").val();
+        var price = $("#panel-box").find("table input[name=price]").val();
+        var dp = parseInt($("#panel-box").find("#dp").text());
+        var total = parseInt($("#panel-box").find("#total").text());
 
         $.ajax({
             url: "views/handlers/purchase.php",
             type: "post",
-            data: {amount: amount, item: item, character: character},
+            data: {amount: amount, character: character, item: item, price: price},
             beforeSend: function() {
                 $("#panel-box").find("#buy").html("Loading...");
             }
         }).success(function(response) {
-            if(response != 0) {
-                $("#panel-box").find("#message").html("Purchase successfull, check your mail in game!");
-            }
-            else {
-                $("#panel-box").find("#message").html("Internal error, try again later.");
+            switch(response) {
+                case "0":
+                    $("#panel-box").find("#message").html("Internal error, try again later.");
+                    break;
+                case "1":
+                    $("#panel-box").find("#message").html("Purchase successful, check your mail in game!");
+                    break;
+                case "2":
+                    $("#panel-box").find("#message").html("Yout not have enough donate points.");
+                    break;
             }
             $("#panel-box").find("#buy").html("Buy");
+            $("#panel-box").find("#dp").text(dp - total);
         });
     })
 });

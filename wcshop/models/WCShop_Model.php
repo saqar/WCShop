@@ -49,10 +49,8 @@ class WCShop_Model
         $db->disconnect();
     }
 
-    public static function get_dp($username)
+    public static function get_dp($account_id)
     {
-        $account_id = self::get_account_id($username);
-
         $db = (new Database())->connect("wcshop");
         $stmt = $db->prepare("SELECT dp FROM account_data WHERE account_id = :account_id");
         $stmt->bindParam(":account_id", $account_id);
@@ -67,6 +65,15 @@ class WCShop_Model
             return 0;
         }
         $db->disconnect();
+    }
+
+    public static function set_dp($account_id, $dp)
+    {
+        $db = (new Database())->connect("wcshop");
+        $stmt = $db->prepare("UPDATE account_data SET dp = :dp WHERE account_id = :account_id");
+        $stmt->bindParam(":dp", $dp);
+        $stmt->bindParam(":account_id", $account_id);
+        $stmt->execute();
     }
 
     public static function get_items_store()

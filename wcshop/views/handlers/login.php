@@ -13,9 +13,7 @@ $sha_pass = Util::generate_hash($user, $pass);
 if(WCShop_Model::is_login_valid($user, $sha_pass))
 {
     Util::login($user);
-    echo 1;
+    die("1");
 }
-else
-{
-    echo 0;
-}
+
+die("0");

@@ -10,7 +10,7 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/Config.php";
 
 class Database extends Config
 {
-    private $db_conn = NULL;
+    private $db_conn = null;
 
     public function connect($db_name)
     {
@@ -29,6 +29,6 @@ class Database extends Config
 
     public function disconnect()
     {
-        $this->db_conn = NULL;
+        $this->db_conn = null;
     }
 }
