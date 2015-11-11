@@ -89,7 +89,7 @@ class WCShop_Model
     public static function get_account_characters($account_id)
     {
         $db = (new Database())->connect("characters");
-        $stmt = $db->prepare("SELECT guid, account, name FROM characters WHERE account = :account_id");
+        $stmt = $db->prepare("SELECT name FROM characters WHERE account = :account_id");
         $stmt->bindParam(":account_id", $account_id);
         $stmt->execute();
 
