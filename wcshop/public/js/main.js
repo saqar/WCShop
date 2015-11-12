@@ -45,49 +45,56 @@ $(document).ready(function() {
         });
     });
 
-    $("#panel-box").find("table input[name=amount]").on("click keyup", function() {
-        if($(this).val() > 99) {
-            $(this).val("99");
-        }
-        if($(this).val() < 1) {
-            $(this).val("1");
-        }
-
-        var price = parseInt($("#panel-box").find("table #price").text());
-        var amount = parseInt($(this).val());
-
-        $("#panel-box").find("table #total").text(price * amount);
+    $("#panel-box .row-item").each(function() {
+        var price = $(this).find("#price");
+        var total = $(this).find("#total");
+        var amount = $(this).find("input[name=amount]");
+        amount.on("click keyup", function() {
+            if(amount.val() > 99) {
+                amount.val("99");
+            }
+            if(amount.val() < 1) {
+                amount.val("1");
+            }
+            var result = parseInt(price.text()) * parseInt(amount.val());
+            total.text(result);
+        });
     });
 
-    $("#panel-box").find("#buy").on("click", function() {
-        var amount = $("#panel-box").find("table input[name=amount]").val();
-        var character = $("#panel-box").find("table select[name=character]").val();
-        var item = $("#panel-box").find("table input[name=item]").val();
-        var price = $("#panel-box").find("table input[name=price]").val();
-        var dp = parseInt($("#panel-box").find("#dp").text());
-        var total = parseInt($("#panel-box").find("#total").text());
-
-        $.ajax({
-            url: "views/handlers/purchase.php",
-            type: "post",
-            data: {amount: amount, character: character, item: item, price: price},
-            beforeSend: function() {
-                $("#panel-box").find("#buy").html("Loading...");
-            }
-        }).success(function(response) {
-            switch(response) {
-                case "0":
-                    $("#panel-box").find("#message").html("Internal error, try again later.");
-                    break;
-                case "1":
-                    $("#panel-box").find("#message").html("Purchase successful, check your mail in game!");
-                    break;
-                case "2":
-                    $("#panel-box").find("#message").html("Yout not have enough donate points.");
-                    break;
-            }
-            $("#panel-box").find("#buy").html("Buy");
-            $("#panel-box").find("#dp").text(dp - total);
+    $("#panel-box .row-item").each(function() {
+        var dp = $("#panel-box").find("#dp");
+        var message = $("#panel-box").find("#message");
+        var amount = $(this).find("input[name=amount]");
+        var character = $(this).find("select[name=character]");
+        var item = $(this).find("input[name=item]");
+        var price = $(this).find("input[name=price]");
+        var total = $(this).find("#total");
+        var button = $(this).find("#buy");
+        button.on("click", function() {
+            $.ajax({
+                url: "views/handlers/purchase.php",
+                type: "post",
+                data: {amount: amount.val(), character: character.val(), item: item.val(), price: price.val()},
+                beforeSend: function() {
+                    button.html("Loading...");
+                }
+            }).success(function(response) {
+                switch(response) {
+                    case "0":
+                        message.html("Internal error, try again later.");
+                        break;
+                    case "1":
+                        message.html("Purchase successful, check your mail in game!");
+                        break;
+                    case "2":
+                        message.html("Yout not have enough donate points.");
+                        break;
+                }
+                button.html("Buy");
+                if(parseInt(dp.text()) >= parseInt(total.text())) {
+                    dp.text(parseInt(dp.text()) - parseInt(total.text()));
+                }
+            });
         });
-    })
+    });
 });

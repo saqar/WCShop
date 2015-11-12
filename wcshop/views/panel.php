@@ -23,7 +23,7 @@ require_once "handlers/panel.php";
             <td>Buy</td>
         </tr>
         <?php foreach($items as $item) : ?>
-        <tr>
+        <tr class="row-item">
             <td>
                 <a href="http://wotlk.openwow.com/item=<?php echo $item['id']; ?>"><?php echo $item["name"]; ?></a>
             </td>
