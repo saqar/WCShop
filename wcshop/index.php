@@ -23,18 +23,6 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/libraries/Loader.php";
     <link rel="stylesheet" type="text/css" href="public/css/normalize.css">
     <link rel="stylesheet" type="text/css" href="public/css/main.css">
 
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800">
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900">
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Oswald:300,400,700">
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans:400,700">
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Fira+Sans:300,400,500,700">
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Orbitron:400,500,700,900">
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Cinzel:400,700,900">
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Electrolize">
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Cantarell">
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ruda">
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Actor">
-
     <link rel="icon" type="image/x-icon" href="public/img/favicon.png">
 
     <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>

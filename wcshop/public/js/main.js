@@ -5,17 +5,17 @@
 */
 
 $(document).ready(function() {
-    $("#login-box").find("table button").on("click", function(e) {
-        var username = $("#login-box").find("table input[name=username]").val();
-        var password = $("#login-box").find("table input[name=password]").val();
-
+    $("#login-box").find("table button").on("click", function() {
+        var login_box = $("#login-box");
+        var username = login_box.find("table input[name=username]").val();
+        var password = login_box.find("table input[name=password]").val();
         if(username && password) {
             $.ajax({
                 url: "/views/handlers/login.php",
                 type: "post",
                 data: {username: username, password: password},
                 beforeSend: function() {
-                    $("#login-box").find("table button").html("Loading...");
+                    login_box.find("table button").html("Loading...");
                 }
             }).success(function(response) {
                 switch(response) {
@@ -23,32 +23,40 @@ $(document).ready(function() {
                         location.replace("/?view=panel");
                         break;
                     case "0":
-                        $("#login-box").find("#message").html("Username or Password are invalid.");
-                        $("#login-box").find("table button").html("Login");
+                        login_box.find("#message").html("Username or Password are invalid.");
+                        login_box.find("table button").html("Login");
                         break;
                 }
             });
         }
         else {
-            $("#login-box").find("#message").html("Username and Password are required.");
+            login_box.find("#message").html("Username and Password are required.");
         }
     });
 
     $("#logout").on("click", function(e) {
+        var logout = $(this);
         $.ajax({
             url: "views/handlers/logout.php",
             beforeSend: function() {
-                $("#logout").html("Loading...");
+                logout.html("Loading...");
             }
         }).success(function() {
             location.replace("/?view=logout");
         });
     });
 
-    $("#panel-box .row-item").each(function() {
-        var price = $(this).find("#price");
-        var total = $(this).find("#total");
-        var amount = $(this).find("input[name=amount]");
+    $("#panel-box").find(".row-item").each(function() {
+        var row = $(this);
+        var panel_box = $("#panel-box");
+        var dp = panel_box.find("#dp");
+        var message = panel_box.find("#message");
+        var amount = row.find("input[name=amount]");
+        var character = row.find("select[name=character]");
+        var item = row.find("input[name=item]");
+        var price = row.find("input[name=price]");
+        var total = row.find("#total");
+        var button = row.find("#buy");
         amount.on("click keyup", function() {
             if(amount.val() > 99) {
                 amount.val("99");
@@ -56,20 +64,9 @@ $(document).ready(function() {
             if(amount.val() < 1) {
                 amount.val("1");
             }
-            var result = parseInt(price.text()) * parseInt(amount.val());
+            var result = parseInt(price.val()) * parseInt(amount.val());
             total.text(result);
         });
-    });
-
-    $("#panel-box .row-item").each(function() {
-        var dp = $("#panel-box").find("#dp");
-        var message = $("#panel-box").find("#message");
-        var amount = $(this).find("input[name=amount]");
-        var character = $(this).find("select[name=character]");
-        var item = $(this).find("input[name=item]");
-        var price = $(this).find("input[name=price]");
-        var total = $(this).find("#total");
-        var button = $(this).find("#buy");
         button.on("click", function() {
             $.ajax({
                 url: "views/handlers/purchase.php",
@@ -85,15 +82,13 @@ $(document).ready(function() {
                         break;
                     case "1":
                         message.html("Purchase successful, check your mail in game!");
+                        dp.text(parseInt(dp.text()) - parseInt(total.text()));
                         break;
                     case "2":
                         message.html("Yout not have enough donate points.");
                         break;
                 }
                 button.html("Buy");
-                if(parseInt(dp.text()) >= parseInt(total.text())) {
-                    dp.text(parseInt(dp.text()) - parseInt(total.text()));
-                }
             });
         });
     });

@@ -5,15 +5,15 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/libraries/Loader.php";
 Loader::load_library("Util");
 Loader::load_model("WCShop_Model");
 
-if(!Util::is_logged())
-{
-    header("Location: /?view=login");
-}
-
 $item = isset($_POST["item"]) ? $_POST["item"] : null;
 $price = isset($_POST["price"]) ? $_POST["price"] : null;
 $amount = isset($_POST["amount"]) ? $_POST["amount"] : null;
 $character = isset($_POST["character"]) ? $_POST["character"] : null;
+
+if(!Util::is_logged() || !$item || !$price || !$amount)
+{
+    header("Location: /?view=login");
+}
 
 $total = $price * $amount;
 
