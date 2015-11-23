@@ -27,7 +27,7 @@ if($cur_dp < $total)
     die("2");
 }
 
-$command = '.send items ' . $character . ' "|CFFFF0000Recompensa de Doação|r" "Agradecemos pela sua doação, divirta-se!" ' . $item . ':' . $amount;
+$command = '.send items ' . $character . ' "|CFFFF0000Donation Reward|r" "Thank you for your donation, enjoy!" ' . $item . ':' . $amount;
 if(Util::soap_connect($command))
 {
     $new_dp = $cur_dp - $total;
