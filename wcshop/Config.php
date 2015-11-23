@@ -15,9 +15,6 @@ class Config
         "meta_description" => "Online shop for World Of Warcraft private servers",
         "meta_keywords"    => "wowcore, wow, donate, shop, store, item",
 
-        // General Config
-        "email" => "email@email.com",
-
         // Database Config
         "db_host" => "localhost",
         "db_port" => "3306",
