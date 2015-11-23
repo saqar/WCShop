@@ -15,7 +15,7 @@ $(document).ready(function() {
                 type: "post",
                 data: {username: username, password: password},
                 beforeSend: function() {
-                    login_box.find("table button").html("Loading...");
+                    login_box.find("table button").html("Loading ...");
                 }
             }).success(function(response) {
                 switch(response) {
@@ -39,7 +39,7 @@ $(document).ready(function() {
         $.ajax({
             url: "views/handlers/logout.php",
             beforeSend: function() {
-                logout.html("Loading...");
+                logout.html("Loading ...");
             }
         }).success(function() {
             location.replace("/?view=logout");
@@ -73,7 +73,7 @@ $(document).ready(function() {
                 type: "post",
                 data: {amount: amount.val(), character: character.val(), item: item.val(), price: price.val()},
                 beforeSend: function() {
-                    button.html("Loading...");
+                    button.html("Loading ...");
                 }
             }).success(function(response) {
                 switch(response) {
