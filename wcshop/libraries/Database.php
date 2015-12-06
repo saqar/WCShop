@@ -1,5 +1,11 @@
 <?php
 
+/*
+**
+** Developed by www.wowcore.com.br
+**
+*/
+
 class Database
 {
     private $db_conn = null;
