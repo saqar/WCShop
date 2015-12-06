@@ -1,5 +1,11 @@
 <?php
 
+/*
+**
+** Developed by www.wowcore.com.br
+**
+*/
+
 define("BASEPATH", __DIR__);
 
 require_once BASEPATH . "/Config.php";
