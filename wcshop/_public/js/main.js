@@ -13,7 +13,7 @@ $(document).ready(function() {
             $.ajax({
                 url: "/views/handlers/login.php",
                 type: "post",
-                data: {username: username, password: password},
+                data: {username: username, password: password, ajax: "true"},
                 beforeSend: function() {
                     login_box.find("table button").html("Loading ...");
                 }
@@ -38,6 +38,7 @@ $(document).ready(function() {
         var logout = $(this);
         $.ajax({
             url: "views/handlers/logout.php",
+            data: {ajax: "true"},
             beforeSend: function() {
                 logout.html("Loading ...");
             }
@@ -71,7 +72,7 @@ $(document).ready(function() {
             $.ajax({
                 url: "views/handlers/purchase.php",
                 type: "post",
-                data: {amount: amount.val(), character: character.val(), item: item.val(), price: price.val()},
+                data: {amount: amount.val(), character: character.val(), item: item.val(), price: price.val(), ajax: "true"},
                 beforeSend: function() {
                     button.html("Loading ...");
                 }

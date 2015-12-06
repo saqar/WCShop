@@ -6,7 +6,7 @@
 **
 */
 
-require_once $_SERVER["DOCUMENT_ROOT"] . "/libraries/Loader.php";
+require_once "Loader.php";
 
 ?>
 
@@ -20,25 +20,25 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/libraries/Loader.php";
 
     <title><?php echo Loader::load_config("title"); ?></title>
 
-    <link rel="stylesheet" type="text/css" href="public/css/normalize.css">
-    <link rel="stylesheet" type="text/css" href="public/css/main.css">
+    <link rel="stylesheet" type="text/css" href="_public/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="_public/css/main.css">
 
-    <link rel="icon" type="image/x-icon" href="public/img/favicon.png">
+    <link rel="icon" type="image/x-icon" href="_public/img/favicon.png">
 
     <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="http://cdn.openwow.com/api/tooltip.js"></script>
-    <script type="text/javascript" src="public/js/main.js"></script>
+    <script type="text/javascript" src="_public/js/main.js"></script>
 </head>
 <body>
     <header>
         <section>
-            <img src="public/img/logo.jpg" alt="Logo">
+            <img src="_public/img/logo.jpg" alt="Logo">
         </section>
     </header>
     <div class="box">
         <main>
             <?php
-                Loader::load_view(isset($_GET["view"]) ? $_GET["view"] : null);
+                Loader::load_view();
             ?>
         </main>
         <footer>

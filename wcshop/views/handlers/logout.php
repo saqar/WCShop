@@ -1,6 +1,7 @@
 <?php
 
-require_once $_SERVER["DOCUMENT_ROOT"] . "/libraries/Loader.php";
+if(isset($_POST["ajax"]))
+    require_once "../../Loader.php";
 
 Loader::load_library("Util");
 

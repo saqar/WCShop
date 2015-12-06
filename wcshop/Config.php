@@ -26,5 +26,8 @@ class Config
         "soap_port" => "7878",
         "soap_user" => "account",
         "soap_pass" => "password",
+
+        // General Config
+        "default_view_page" => "login"
     );
 }
